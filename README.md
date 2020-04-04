@@ -1,4 +1,6 @@
-# WPK-Pthread-Encryption
+# Willis Knox
+
+## COM S 352 - Project 2
 
 This is a program written for COM S 352 for the Spring 2020 semester. The goal of this assignment was to write a program that utilizes multiple threads to encrypt an input file and write the encrypted output to a separate output file.
 
