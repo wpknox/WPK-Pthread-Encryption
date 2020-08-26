@@ -299,13 +299,13 @@ void *count_input()
       if ((c >= 'A' && c <= 'Z'))
       {
         x = c - 'A'; // subtracts 'A' from the char and then converts to its int number
-        ++input_counts[x]; // 'A' - 'A' == 0, so inc input_counts[0] by 1
+        ++input_counts[x]; // 'A' - 'A' == 0, so inc input_counts[0] by 1... and so on up to [25]
       }
       else if ((c >= 'a' && c <= 'z'))
       {
         x = c - 'a'; // subtracts 'a' from the char and then converts to its int number
         x += 26; // add 26 because lower case letters are in positions 26-51 in input_counts
-        ++input_counts[x]; // 'a' - 'a' == 0, so inc input_counts[26] by 1
+        ++input_counts[x]; // 'a' - 'a' == 0, so inc input_counts[26] by 1... and so on up to [51]
       }
     }
   } while (!end_of_file);
@@ -332,13 +332,13 @@ void *count_output()
       if ((c >= 'A' && c <= 'Z'))
       {
         x = c - 'A'; // subtracts 'A' from the char and then converts to its int number
-        ++output_counts[x]; // 'a' - 'a' == 0, so inc output_counts[26] by 1
+        ++output_counts[x]; // 'A' - 'A' == 0, so inc output_counts[0] by 1... and so on up to [25]
       }
       else if ((c >= 'a' && c <= 'z'))
       {
         x = c - 'a'; // subtracts 'a' from the char and then converts to its int number
         x += 26; // add 26 because lower case letters are in positions 26-51 in output_counts
-        ++output_counts[x]; // 'a' - 'a' == 0, so inc output_counts[26] by 1
+        ++output_counts[x]; // 'a' - 'a' == 0, so inc output_counts[26] by 1... and so on up to [51]
       }
     }
     // adds 1 to write_sem.value incase write thread finished before this thread
