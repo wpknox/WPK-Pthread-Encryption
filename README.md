@@ -8,12 +8,12 @@ To build this project, simply type `make` in the terminal, and after it has comp
 
 The input file has to exist beforehand, as the program will not make one for you. The output file does not have to exist, but if it does, the program will overwrite what was in the file previously and then start writing at the beginning of the file.
 ___
-
 After you launch the program, it will ask the user for a buffer size. Whatever number the user enters will be the number of characters the program grabs from the input file at a time. After it grabs up to *N* characters, it will encrypt the characters, count the number of occurences of each letter in the input file, count the number of occurences of each enrypted letter in the output file, and write to the output file before grabbing the next set of *N* characters from the specified input file.
 ___
+This program is **not** maximumly concurrent. It does utilize the *pthreads* and *semaphores* libraries, but it will not be able to encrypt one character and read another character at the same time. It reads up to the establish *N* characters. It will then encrypt and count inputs concurrently, write the encryption and count outputs concurrently,
+and go on to repeat the loop until the end of the file is reached. 
 
-This program is **not** maximumly concurrent. It does utilize the *pthreads* and *semaphores* libraries, but it will not be able to encrypt one character and read another character at the same time.
-
+Maximum concurrency would be achieved if one could be reading from the input file a character at position *n* while encrypting the character at position *n-1* and/or counting the number of times that character at position *n-1* appeared in the input file.
 ___
 
 The encryption algorithm is fairly simple, the following is the pseudocode for the algorithm (from project description):
